@@ -1,4 +1,5 @@
 using MovieRental.Data;
+using MovieRental.Error_Handling;
 using MovieRental.Mappers;
 using MovieRental.Movie;
 using MovieRental.Rental;
@@ -23,6 +24,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<GlobalErrorHandler>();
 
 app.UseAuthorization();
 
