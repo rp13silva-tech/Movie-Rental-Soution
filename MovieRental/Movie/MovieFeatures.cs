@@ -1,15 +1,19 @@
 ﻿using MovieRental.Data;
+using MovieRental.Mappers;
 
 namespace MovieRental.Movie
 {
 	public class MovieFeatures : IMovieFeatures
 	{
 		private readonly MovieRentalDbContext _movieRentalDb;
-		public MovieFeatures(MovieRentalDbContext movieRentalDb)
+		private readonly IMovieMapper _movieMapper;
+
+		public MovieFeatures(MovieRentalDbContext movieRentalDb, IMovieMapper movieMapper)
 		{
 			_movieRentalDb = movieRentalDb;
+			_movieMapper = movieMapper;
 		}
-		
+
 		public Movie Save(Movie movie)
 		{
 			_movieRentalDb.Movies.Add(movie);
@@ -17,11 +21,18 @@ namespace MovieRental.Movie
 			return movie;
 		}
 
-		// TODO: tell us what is wrong in this method? Forget about the async, what other concerns do you have?
-		public List<Movie> GetAll()
+		public List<DTOs.MovieDTO> GetAll()
 		{
-			return _movieRentalDb.Movies.ToList();
-		}
+            List<Movie> movies = _movieRentalDb.Movies.ToList();
+            List<DTOs.MovieDTO> moviesDtos = new ();
+
+			foreach (var movie in movies)
+			{
+				moviesDtos.Add(_movieMapper.MapToDto(movie));
+			}
+
+            return moviesDtos;
+        }
 
 
 	}

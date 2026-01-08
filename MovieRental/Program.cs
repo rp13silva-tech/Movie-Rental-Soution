@@ -1,4 +1,5 @@
 using MovieRental.Data;
+using MovieRental.Mappers;
 using MovieRental.Movie;
 using MovieRental.Rental;
 
@@ -10,6 +11,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddEntityFrameworkSqlite().AddDbContext<MovieRentalDbContext>();
 
 builder.Services.AddScoped<IRentalFeatures, RentalFeatures>();
+builder.Services.AddScoped<IMovieFeatures, MovieFeatures>();
+builder.Services.AddScoped<IMovieMapper, MovieMapper>();
 
 var app = builder.Build();
 
