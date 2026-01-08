@@ -23,5 +23,11 @@ namespace MovieRental.Controllers
 	        return Ok(_features.Save(rental));
         }
 
-	}
+        [HttpGet]
+        public async Task<IActionResult> Get([FromQuery] string customerName)
+        {
+            return Ok(await _features.GetRentalsByCustomerName(customerName));
+        }
+
+    }
 }
