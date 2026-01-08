@@ -18,10 +18,10 @@ namespace MovieRental.Rental
 			return rental;
 		}
 
-		public async Task<IEnumerable<Rental>> GetRentalsByCustomerName(string customerName)
+		public async Task<IEnumerable<Rental>> GetRentalsByCustomerId(int customerId)
 		{
 			return await _movieRentalDb.Rentals
-				.Where(rental => rental.CustomerName == customerName)
+				.Where(rental => rental.CustomerId == customerId)
 				.ToListAsync();
 		}
 

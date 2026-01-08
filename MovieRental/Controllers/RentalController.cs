@@ -24,9 +24,9 @@ namespace MovieRental.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] string customerName)
+        public async Task<IActionResult> Get([FromQuery] int customerId)
         {
-            return Ok(await _features.GetRentalsByCustomerName(customerName));
+            return Ok(await _features.GetRentalsByCustomerId(customerId));
         }
 
     }
