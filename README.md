@@ -27,3 +27,6 @@ Here are the specific instructions for this implementation:
     * The system should be designed to allow the addition of more payment providers in the future, ensuring flexibility and scalability.
 * Payment Failure Handling:
     * If the payment method fails during the transaction, the system should prevent the creation of the rental record. In such cases, no rental should be saved to the database.
+
+### Every answer or brief explanation needed are within the commit message or commit description
+### I have separated each task in different commits for better understanding. One for each bullet point and one for the challenge.
