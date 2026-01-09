@@ -2,6 +2,6 @@
 
 public interface IRentalFeatures
 {
-	Task<Rental> Save(Rental rental);
+	Task<DTOs.RentalDTO> Save(DTOs.RentalDTO rental);
 	Task<IEnumerable<Rental>> GetRentalsByCustomerId(int customerId);
 }

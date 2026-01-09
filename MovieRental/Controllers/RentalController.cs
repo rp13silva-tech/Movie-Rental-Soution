@@ -18,9 +18,9 @@ namespace MovieRental.Controllers
 
 
         [HttpPost]
-        public IActionResult Post([FromBody] Rental.Rental rental)
+        public IActionResult Post([FromBody] DTOs.RentalDTO rentalDto)
         {
-	        return Ok(_features.Save(rental));
+	        return Ok(_features.Save(rentalDto));
         }
 
         [HttpGet]

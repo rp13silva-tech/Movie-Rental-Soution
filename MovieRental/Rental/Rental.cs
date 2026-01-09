@@ -14,6 +14,7 @@ namespace MovieRental.Rental
 		public int MovieId { get; set; }
 
 		public string PaymentMethod { get; set; }
+		public double PaymentPrice { get; set; }
 
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }

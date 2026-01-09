@@ -2,6 +2,7 @@ using MovieRental.Data;
 using MovieRental.Error_Handling;
 using MovieRental.Mappers;
 using MovieRental.Movie;
+using MovieRental.PaymentProviders;
 using MovieRental.Rental;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,9 @@ builder.Services.AddEntityFrameworkSqlite().AddDbContext<MovieRentalDbContext>()
 builder.Services.AddScoped<IRentalFeatures, RentalFeatures>();
 builder.Services.AddScoped<IMovieFeatures, MovieFeatures>();
 builder.Services.AddScoped<IMovieMapper, MovieMapper>();
+builder.Services.AddScoped<IRentalMapper, RentalMapper>();
+builder.Services.AddScoped<MbWayProvider>();
+builder.Services.AddScoped<PayPalProvider>();
 
 var app = builder.Build();
 
